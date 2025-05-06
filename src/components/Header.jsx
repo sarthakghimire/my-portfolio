@@ -11,14 +11,6 @@ const Header = () => {
 
         <nav className="space-x-6 hidden sm:block">
           <Link
-            to="projects"
-            smooth={true}
-            duration={500}
-            className="cursor-pointer hover:text-ghibli-leaf transition-colors"
-          >
-            Projects
-          </Link>
-          <Link
             to="education"
             smooth={true}
             duration={500}
@@ -33,6 +25,14 @@ const Header = () => {
             className="cursor-pointer hover:text-ghibli-leaf transition-colors"
           >
             Skills
+          </Link>
+          <Link
+            to="projects"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer hover:text-ghibli-leaf transition-colors"
+          >
+            Projects
           </Link>
           <Link
             to="contact"

@@ -39,7 +39,6 @@ const Footer = () => {
 
       <p className="text-ghibli-ink text-sm">
         © {new Date().getFullYear()} Sarthak Ghimire • Inspired by Studio Ghibli
-        🌱
       </p>
     </footer>
   );
