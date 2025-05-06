@@ -1,0 +1,73 @@
+:root {
+  --ghibli-sky: #d6eaf8;
+  --ghibli-grass: #b8d9b4;
+  --ghibli-ink: #2c3e50;
+  --ghibli-fog: #7f8c8d;
+  --ghibli-sunset: #f39c6b;
+  --ghibli-leaf: #6ab04c;
+  --ghibli-slate: #dcdde1;
+}
+
+.bg-ghibli-sky {
+  background-color: var(--ghibli-sky);
+}
+.bg-ghibli-grass {
+  background-color: var(--ghibli-grass);
+}
+.bg-ghibli-sunset {
+  background-color: var(--ghibli-sunset);
+}
+.bg-ghibli-leaf {
+  background-color: var(--ghibli-leaf);
+}
+.bg-ghibli-ink {
+  background-color: var(--ghibli-ink);
+}
+.bg-ghibli-fog {
+  background-color: var(--ghibli-fog);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Architects+Daughter&display=swap");
+
+.font-ghibli {
+  font-family: "Quicksand", sans-serif;
+}
+.font-ghibli-hand {
+  font-family: "Architects Daughter", cursive;
+}
+.text-ghibli-ink {
+  color: var(--ghibli-ink);
+}
+.text-ghibli-fog {
+  color: var(--ghibli-fog);
+}
+
+.btn-ghibli {
+  background-color: var(--ghibli-leaf);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.btn-ghibli:hover {
+  background-color: #519944;
+}
+
+.border-ghibli {
+  border: 1px solid var(--ghibli-slate);
+}
+.shadow-ghibli {
+  box-shadow: 0 4px 8px rgba(44, 62, 80, 0.15);
+}
+.rounded-ghibli {
+  border-radius: 1rem;
+}
+.profile-picture {
+  height: 300px;
+  width: auto;
+  border-radius: 10px;
+}
