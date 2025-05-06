@@ -7,7 +7,9 @@ const Footer = () => {
       id="contact"
       className="bg-ghibli-fog text-white text-center py-10 px-6"
     >
-      <h2 className="text-2xl font-ghibliHand mb-6">Let’s Connect!</h2>
+      <h2 className="text-2xl font-ghibliHand mb-6">
+        Remember me when you're having Biryani!
+      </h2>
 
       <div className="flex justify-center items-center gap-8 text-2xl mb-6">
         <a
