@@ -2,13 +2,12 @@ import React from "react";
 import HTML from "./../../src/assets/html.png";
 import CSS from "./../../src/assets/css.png";
 import JS from "./../../src/assets/js.png";
-import SASS from "./../../src/assets/sass.png";
 import TAILWIND from "./../../src/assets/tailwind.png";
 import BOOTSTRAP from "./../../src/assets/bootstrap.png";
 import REACT from "./../../src/assets/react.png";
 
 const Skills = () => {
-  const skills = [HTML, CSS, JS, REACT, SASS, BOOTSTRAP, TAILWIND];
+  const skills = [HTML, CSS, JS, REACT, BOOTSTRAP, TAILWIND];
 
   return (
     <div
