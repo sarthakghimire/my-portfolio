@@ -1,6 +1,7 @@
 import React from "react";
 import meme from "./../assets/meme.png";
 import chat from "./../assets/chat.png";
+import e_com from "./../assets/e_com.png";
 
 const Projects = () => {
   return (
@@ -43,6 +44,28 @@ const Projects = () => {
           </p>
           <a
             href="https://memesbysarthak.netlify.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 text-ghibli-ink border-2 border-ghibli-ink rounded-ghibli hover:bg-ghibli-fog transition duration-300 hover:text-white"
+          >
+            View Live
+          </a>
+        </div>
+
+        <div className="bg-white rounded-ghibli shadow-lg p-6 flex flex-col items-center hover:scale-[1.02] transition-transform duration-300">
+          <img
+            src={e_com}
+            alt="Chatroom App"
+            className="w-full h-48 object-cover rounded-ghibli mb-4"
+          />
+          <h3 className="text-2xl font-bold mb-2">Mock e-commerce site</h3>
+          <p className="mb-4 text-center">
+            An e-commerce site that uses Platzi FakeStore API to fetch products.
+            Provided with customer login, admin panel and cart summary using
+            Gemini AI.
+          </p>
+          <a
+            href="https://venerable-parfait-4347ed.netlify.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 text-ghibli-ink border-2 border-ghibli-ink rounded-ghibli hover:bg-ghibli-fog transition duration-300 hover:text-white"
