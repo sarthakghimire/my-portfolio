@@ -1,80 +1,91 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from "./ui/card";
+import { Button } from "./ui/button";
+import { ExternalLink, Github } from "lucide-react";
 import meme from "./../assets/meme.png";
 import chat from "./../assets/chat.png";
 import e_com from "./../assets/e_com.png";
 
 const Projects = () => {
+    const projects = [
+        {
+            title: "Chatroom App",
+            description: "A real-time chatroom built with ReactJS and Appwrite. Features seamless messaging and user authentication.",
+            image: chat,
+            link: "https://github.com/sarthakghimire/chat-app",
+            linkType: "github"
+        },
+        {
+            title: "Meme Generator",
+            description: "A fun meme generator built using ReactJS and Bootstrap. Create and share memes instantly.",
+            image: meme,
+            link: "https://memesbysarthak.netlify.app",
+            linkType: "live"
+        },
+        {
+            title: "Mock E-commerce",
+            description: "An e-commerce site using Platzi FakeStore API. Includes customer login, admin panel, and AI cart summary.",
+            image: e_com,
+            link: "https://venerable-parfait-4347ed.netlify.app/",
+            linkType: "live"
+        }
+    ];
+
   return (
-    <div
-      id="projects"
-      className="bg-ghibli-leaf min-h-screen py-16 px-6 text-ghibli-ink"
-    >
-      <h2 className="text-4xl font-ghibliHand text-center mb-12">Projects</h2>
+    <section id="projects" className="py-20 bg-background">
+      <div className="container max-w-6xl mx-auto px-6">
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.5 }}
+           className="text-center mb-16"
+        >
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 tracking-tight">Featured Projects</h2>
+          <p className="text-muted-foreground text-lg">Check out some of my recent work</p>
+        </motion.div>
 
-      <div className="grid gap-10 lg:grid-cols-2 max-w-6xl mx-auto">
-        <div className="bg-white rounded-ghibli shadow-lg p-6 flex flex-col items-center hover:scale-[1.02] transition-transform duration-300">
-          <img
-            src={chat}
-            alt="Chatroom App"
-            className="w-full h-48 object-cover rounded-ghibli mb-4"
-          />
-          <h3 className="text-2xl font-bold mb-2">Chatroom App</h3>
-          <p className="mb-4 text-center">
-            A real-time chatroom built with ReactJS and Appwrite.
-          </p>
-          <a
-            href="https://github.com/sarthakghimire/chat-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 text-ghibli-ink border-2 border-ghibli-ink rounded-ghibli hover:bg-ghibli-fog transition duration-300 hover:text-white"
-          >
-            View on GitHub
-          </a>
-        </div>
-
-        <div className="bg-white rounded-ghibli shadow-lg p-6 flex flex-col items-center hover:scale-[1.02] transition-transform duration-300">
-          <img
-            src={meme}
-            alt="Meme Generator"
-            className="w-full h-48 object-cover rounded-ghibli mb-4"
-          />
-          <h3 className="text-2xl font-bold mb-2">Meme Generator</h3>
-          <p className="mb-4 text-center">
-            A fun meme generator built using ReactJS and Bootstrap.
-          </p>
-          <a
-            href="https://memesbysarthak.netlify.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 text-ghibli-ink border-2 border-ghibli-ink rounded-ghibli hover:bg-ghibli-fog transition duration-300 hover:text-white"
-          >
-            View Live
-          </a>
-        </div>
-
-        <div className="bg-white rounded-ghibli shadow-lg p-6 flex flex-col items-center hover:scale-[1.02] transition-transform duration-300">
-          <img
-            src={e_com}
-            alt="Chatroom App"
-            className="w-full h-48 object-cover rounded-ghibli mb-4"
-          />
-          <h3 className="text-2xl font-bold mb-2">Mock e-commerce site</h3>
-          <p className="mb-4 text-center">
-            An e-commerce site that uses Platzi FakeStore API to fetch products.
-            Provided with customer login, admin panel and cart summary using
-            Gemini AI.
-          </p>
-          <a
-            href="https://venerable-parfait-4347ed.netlify.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 text-ghibli-ink border-2 border-ghibli-ink rounded-ghibli hover:bg-ghibli-fog transition duration-300 hover:text-white"
-          >
-            View Live
-          </a>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project, index) => (
+                <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                    <Card className="flex flex-col h-full overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                        <div className="h-48 overflow-hidden bg-muted">
+                             <img
+                                src={project.image}
+                                alt={project.title}
+                                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                            />
+                        </div>
+                        <CardHeader>
+                            <CardTitle>{project.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="flex-grow">
+                             <CardDescription className="text-base">{project.description}</CardDescription>
+                        </CardContent>
+                        <CardFooter>
+                            <Button asChild variant="outline" className="w-full">
+                                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                    {project.linkType === 'github' ? (
+                                        <>View on GitHub <Github className="ml-2 h-4 w-4"/></>
+                                    ) : (
+                                        <>View Live <ExternalLink className="ml-2 h-4 w-4"/></>
+                                    )}
+                                </a>
+                            </Button>
+                        </CardFooter>
+                    </Card>
+                </motion.div>
+            ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

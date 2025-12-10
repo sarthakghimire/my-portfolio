@@ -1,49 +1,79 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"; // Using lucide icon as visual anchor if needed, or just standard div
 
 const Education = () => {
+    const educationData = [
+        {
+            title: "Bachelor of Science in CSIT",
+            period: "2022 - Present",
+            institution: "Tribhuvan University, Bhaktapur Multiple Campus",
+            description: "Surviving...",
+            current: true,
+        },
+        {
+            title: "High School (Science)",
+            period: "2019 - 2021",
+            institution: "St. Xavier’s College",
+            description: "Survived the COVID pandemic.",
+        },
+        {
+            title: "Secondary Education",
+            period: "2006 - 2019",
+            institution: "Dibya Deep Jyoti English Secondary School",
+            description: "Learned the Pythagoras theorem.",
+        },
+    ];
+
   return (
-    <div
-      id="education"
-      className="bg-ghibli-sunset flex flex-col items-center justify-center min-h-screen px-6 py-12 text-center lg:text-left"
-    >
-      <div class="max-w-2xl mx-auto my-12 bg-ghibli-grass">
-        <h2 class="text-3xl font-ghibliHand text-center mb-8">Education</h2>
-        <ol class="relative border-l-4 border-ghibli-fog pl-6">
-          <li class="mb-10">
-            <span class="absolute -left-3 top-1 w-6 h-6 bg-ghibli-leaf rounded-full border-2 border-white"></span>
-            <h3 class="text-xl font-semibold text-ghibli-ink">
-              Bachelor of Science in CSIT
-            </h3>
-            <time class="text-sm text-ghibli-fog">2022 - Present</time>
-            <p class="text-ghibli-ink mt-2">
-              Tribhuvan University, Bhaktapur Multiple Campus — Exploring
-              student politics and chasing assignment deadlines.
-            </p>
-          </li>
-          <li class="mb-10">
-            <span class="absolute -left-3 top-1 w-6 h-6 bg-ghibli-sunset rounded-full border-2 border-white"></span>
-            <h3 class="text-xl font-semibold text-ghibli-ink">
-              High School (Science)
-            </h3>
-            <time class="text-sm text-ghibli-fog">2019 - 2021</time>
-            <p class="text-ghibli-ink mt-2">
-              St. Xavier’s College — Survived the COVID Pandemic.
-            </p>
-          </li>
-          <li class="mb-10">
-            <span class="absolute -left-3 top-1 w-6 h-6 bg-ghibli-sunset rounded-full border-2 border-white"></span>
-            <h3 class="text-xl font-semibold text-ghibli-ink">
-              Secondary Education
-            </h3>
-            <time class="text-sm text-ghibli-fog">2006-2019</time>
-            <p class="text-ghibli-ink mt-2">
-              Dibya Deep Jyoti English Secondary School —Learned alphabets and
-              how to balance a trial balance.
-            </p>
-          </li>
-        </ol>
+    <section id="education" className="py-20 bg-muted/30">
+      <div className="container max-w-4xl mx-auto px-6">
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.5 }}
+           className="text-center mb-16"
+        >
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 tracking-tight">Education</h2>
+          <p className="text-muted-foreground text-lg">My academic background</p>
+        </motion.div>
+
+        <div className="relative border-l border-muted-foreground/30 ml-4 md:ml-12 space-y-12">
+            {educationData.map((item, index) => (
+                <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative pl-8 md:pl-12"
+                >
+                    <span 
+                        className={`absolute -left-[5px] top-2 w-3 h-3 rounded-full border-2 border-background ${item.current ? 'bg-primary animate-pulse' : 'bg-muted-foreground'}`}
+                    ></span>
+                    
+                    <Card className="border-none shadow-none bg-transparent sm:bg-card sm:border sm:shadow-sm">
+                        <CardHeader className="pb-2">
+                             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                                <CardTitle className="text-xl font-bold text-primary">{item.title}</CardTitle>
+                                <span className="text-sm font-medium px-2 py-1 bg-secondary rounded-md w-fit">
+                                    {item.period}
+                                </span>
+                             </div>
+                             <h4 className="text-base font-semibold text-foreground/80">{item.institution}</h4>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-muted-foreground leading-relaxed">
+                                {item.description}
+                            </p>
+                        </CardContent>
+                    </Card>
+                </motion.div>
+            ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
