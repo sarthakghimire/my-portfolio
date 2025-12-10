@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"; // Using lucide icon as visual anchor if needed, or just standard div
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 const Education = () => {
     const educationData = [

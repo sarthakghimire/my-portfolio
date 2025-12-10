@@ -44,7 +44,7 @@ const Skills = () => {
                         transition={{
                             repeat: Infinity,
                             ease: "linear",
-                            duration: 20 // Adjust duration for speed
+                            duration: 20 
                         }}
                         style={{ width: "max-content" }}
                     >
